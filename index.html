@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+   
+    <div class="head text-center">
+    <h1 class="top-heading display-2"> Tic Tac Toe </h1>
+    <sub class="heading1-subscript"> - Made with ❤️ by Yash Prakash</sub>
+    </div>
+
+    <div class="player-choices text-center">
+    <form action="" id="playerChoices">
+        <div class="player-mode" id="player-mode">
+            <h3>Player Mode</h3>
+            <input type="radio" class="btn-check" id="onePlayer" name="playerMode" value="onePlayer" required>
+            <label for="onePlayer" class="btn btn-outline-primary">One Player</label>    
+            <input type="radio" class="btn-check" id="twoPlayer" name="playerMode" value="twoPlayer" required>
+            <label for="twoPlayer" class="btn btn-outline-primary">Two Players</label>
+        </div>
+        <div class="player-symbol-choice">
+            <h3>Player 1's Symbol Choice</h3>
+            <input type="radio" class="btn-check" id="xChoice" name="player1SymbolChoice" value="x" required>
+            <label for="xChoice" class="btn btn-outline-primary">X</label>    
+            <input type="radio" class="btn-check" id="circleChoice" name="player1SymbolChoice" value="circle" required>
+            <label for="circleChoice" class="btn btn-outline-primary">O</label>  
+        </div>
+        <div class="who-first">
+            <h3>Who plays first?</h3>
+            <div class="who-first-btns">
+            <input type="radio" class="btn-check" id="player1First" name="whoFirst" value="player1" required>
+            <label for="player1First" class="btn btn-outline-primary">Player 1</label>    
+            <input type="radio" class="btn-check" id="player2First" name="whoFirst" value="player2" required>
+            <label for="player2First" class="btn btn-outline-primary">Player-2/Computer</label>  
+            </div>
+        </div>
+
+        <div>                     
+            <button class="submit-btn btn btn-success" type="submit" id="playButton">Let's Play!</button>                  
+        </div>          
+    </form>
+    </div>
+
+    <div class="board" id="board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+
+
+    <div class="winning-message" id="winningMessage">        
+        <p id="winningMessageText"></p>
+        <div class="resetButton">
+            <button id="resetButton">Reset Board</button>
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
