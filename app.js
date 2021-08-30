@@ -281,7 +281,7 @@ function evaluateBoardConditions(b){
         }
     }
     
-    // Checking for Columns for X or O victory.
+
     for(let col = 0; col < 3; col++)
     {
         if (b[0][col] == b[1][col] &&
@@ -295,7 +295,7 @@ function evaluateBoardConditions(b){
         }
     }
     
-    // Checking for Diagonals for X or O victory.
+
     if (b[0][0] == b[1][1] && b[1][1] == b[2][2])
     {
         if (b[0][0] == playerChoices.player2.symbol)
@@ -315,8 +315,7 @@ function evaluateBoardConditions(b){
             return -10;
     }
     
-    // Else if none of them have
-    // won then return 0
+
     return 0;
 }
 
@@ -325,18 +324,15 @@ function minimax(board, depth, isMax)
 {
     let score = evaluateBoardConditions(board);
   
-    // If Maximizer has won the game
-    // return his/her evaluated score
+
     if (score == 10)
         return score;
   
-    // If Minimizer has won the game
-    // return his/her evaluated score
+
     if (score == -10)
         return score;
   
-    // If there are no more moves and
-    // no winner then it is a tie
+
     if (isMovesLeft(board) == false)
         return 0;
   
@@ -355,15 +351,14 @@ function minimax(board, depth, isMax)
                 if (board[i][j]=='_')
                 {
                      
-                    // Make the move
+
                     board[i][j] = playerChoices.player2.symbol;
   
-                    // Call minimax recursively
-                    // and choose the maximum value
+
                     best = Math.max(best, minimax(board,
                                     depth + 1, !isMax));
   
-                    // Undo the move
+
                     board[i][j] = '_';
                 }
             }
@@ -371,30 +366,27 @@ function minimax(board, depth, isMax)
         return best;
     }
   
-    // If this minimizer's move
+
     else
     {
         let best = 1000;
   
-        // Traverse all cells
+
         for(let i = 0; i < 3; i++)
         {
             for(let j = 0; j < 3; j++)
             {
                  
-                // Check if cell is empty
                 if (board[i][j] == '_')
                 {
                      
-                    // Make the move
-                    board[i][j] = playerChoices.player1.symbol;
-  
-                    // Call minimax recursively and
-                    // choose the minimum value
+
+                    board[i][j] = playerChoices.player1.symbol; 
+
                     best = Math.min(best, minimax(board,
                                     depth + 1, !isMax));
   
-                    // Undo the move
+
                     board[i][j] = '_';
                 }
             }
@@ -410,10 +402,7 @@ function findBestMove(board)
     bestMove.row = -1;
     bestMove.col = -1;
   
-    // Traverse all cells, evaluate
-    // minimax function for all empty
-    // cells. And return the cell
-    // with optimal value.
+
     for(let i = 0; i < 3; i++)
     {
         for(let j = 0; j < 3; j++)
@@ -423,19 +412,16 @@ function findBestMove(board)
             if (board[i][j] == '_')
             {
                  
-                // Make the move
+
                 board[i][j] = playerChoices.player2.symbol;
   
-                // compute evaluation function
-                // for this move.
+
                 let moveVal = minimax(board, 0, false);
   
-                // Undo the move
+
                 board[i][j] = '_';
   
-                // If the value of the current move
-                // is more than the best value, then
-                // update best
+
                 if (moveVal > bestVal)
                 {
                     bestMove.row = i;
@@ -444,11 +430,7 @@ function findBestMove(board)
                 }
             }
         }
-    }
-  
-    // document.write("The value of the best Move " +
-    //                "is : ", bestVal + "<br><br>");
-  
+    } 
     return bestMove;
 }
 
